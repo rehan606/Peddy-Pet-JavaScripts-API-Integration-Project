@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Peddy Pet</title>
+        <link rel="shortcut icon" href="https://img.icons8.com/?size=48&id=xtTM7axs3xJ6&format=png" type="image/x-icon">
+        
+        <link rel="stylesheet" href=" style.css">
+        <!-- Font Awesome CDN -->
+        <script src="https://kit.fontawesome.com/83ad900154.js" crossorigin="anonymous"></script>
+
+        <!-- Tailwind and daisyUI CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <style>
+            /* Spinner styles */
+            #spinner {
+              display: none;
+              width: 40px;
+              height: 40px;
+              border: 4px solid rgba(0, 0, 0, 0.1);
+              border-top: 4px solid #000;
+              border-radius: 50%;
+              animation: spin 1s linear infinite;
+              margin: 20px auto;
+            }
+      
+            /* Spinner animation */
+            @keyframes spin {
+              0% {
+                transform: rotate(0deg);
+              }
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+
+            .active {
+                background-color: green;
+
+            }
+        </style>
+        
+    </head>
+    <body class="overflow-x-hidden ">
+
+        <!-- Nav bar section  -->
+        <div class="header bg-[#010d78] sticky z-50 top-0 ">
+            <div class="container w-11/12 mx-auto">
+                <div class="navbar ">
+                    <div class="navbar-start">
+                        <div class="dropdown">
+                            <div tabindex="0" role="button" class="btn mr-3 border-white md:hidden ">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                                </svg>
+                            </div>
+        
+                            <!-- dropdown Menu -->
+                            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="#content">Shop</a></li>
+                                <li><a href="#footer">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div  class="logo flex items-center ml-10 md:ml-0 gap-2 cursor-pointer">
+                            <div class="logoImage">
+                                <img src="images/logo.webp" alt="">
+                            </div>
+                            <a href="index.html" class=" text-xl text-white">Peddy</a>
+                        </div>
+                        
+                    </div>
+        
+                    <!-- Nam Items  -->
+                    <div class="navbar-center hidden md:flex">
+                        <ul class="menu menu-horizontal px-1 text-white">
+                            <li class="group button " ><a href="index.html" class="group-hover:text-yellow-300 ">Home</a></li>
+                            <li class="group button" ><a href="#content" class="group-hover:text-yellow-300 ">Shop</a></li>
+                            <li class="group button" ><a href="#footer" class="group-hover:text-yellow-300 ">Contact</a></li>
+                        </ul>
+                    </div>
+        
+                    <div class="navbar-end ">
+                      <a class=" rounded-full border border-white p-3 w-10 h-10 text-center cursor-pointer text-white leading-4"><i class="fa-regular fa-user"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner section Start -->
+        <section>
+            <div class="container w-11/12 mx-auto">
+                <div class="hero  min-h-screen pt-10 md:pt-20">
+                    <div class="hero-content text-center">
+                        <div class="max-w-xl ">
+                            <h2 class="text-md md:text-lg font-semibold mb-8">❤️ Bringing Families Together ❤️ </h2>
+                            <h1 class=" text-2xl md:text-5xl  font-bold text-[#010d78]">Your Path to Adoption Starts Here</h1>
+                            <p class="py-6">
+                                "Welcome to Paddy Cat – Your Ultimate Feline Companion Hub! Explore tips, products, and care advice tailored for your purr-fect friend."
+                            </p>
+                            <button id="goto-adopt" class="btn bg-[#010d78] text-white hover:border-[#010d78] hover:text-[#010d78]">View More</button>
+                            
+                            <div class="banner-image  mx-auto mt-12">
+                                <img src="images/pet.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conten Wrapper Start -->
+        <section id="content"  >
+            <div  class="container w-11/12 mx-auto pb-20">
+                <div class="content-header">
+                    <div class="hero-content text-center">
+                        <div class="max-w-md mt-10">
+                            <h1 class="text-2xl md:text-3xl font-bold">Adopt  Your  Best Friend</h1>
+                            <p class="py-6">
+                                Here are some top product recommendations to ensure your feline friend's well-being and happiness.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category -->
+                <div id="category-container" class="  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-2 md:gap-4 lg:gap-x-14 mt-10 justify-center ">
+                    
+                    <!-- Display All Categories by Dynamicaly -->
+
+                    <!-- <div class="  border border-[#010d78] px-20 py-4 flex items-center justify-center gap-3 rounded-lg bg-[#010d7811] hover:bg-[#010d78] group cursor-pointer ">
+                        <div class="image w-12 h-12 ">
+                            <img src="${category_icon}" alt="" class="w-full">
+                        </div>
+                        <h2 class="text-black font-bold text-lg group-hover:text-yellow-300" >${category}</h2>
+        
+                    </div> -->
+
+                </div>
+
+                <!-- Best Deal  -->
+                <div class="deal-container flex justify-between items-center mt-8">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900">Best Deal For you</h3>
+                    <button   id="sort-descending-btn" class="btn bg-[#010d78] text-white hover:text-yellow-400 hover:bg-[#010d78] hover:border-[#010d78]">Short by Price</button>
+
+                </div>
+
+                <!-- content Card and Sidebar -->
+                <div class=" lg:flex gap-4 mt-10">
+                    <!-- Content  -->
+                     
+                    <div class=" lg:w-9/12 ">
+                        <!-- Spinner  -->
+                        <div id="spinner"></div>
+                        
+
+                        <div id="items-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+                            
+                            <!-- ALL Pets Data Dynamicaly Load Here  -->
+
+                        </div>
+
+                        <!-- Item Not found Page  -->
+                        
+
+                       
+                    </div>
+
+                    <!--Details Modal  -->
+                    
+                    <div id="modal-container" class="">
+                        
+                    </div>
+
+
+                    <!-- Adop Modal  -->
+                    <div id="adop-modal-container">
+                       
+                       
+                        
+                    </div>
+
+
+
+                    <!-- sidebar -->
+                    <div class="lg:w-3/12 mt-4 lg:mt-0 rounded-lg border p-3">
+                        <div id="selection-container" class=" grid grid-cols-2 md:grid-cols-5 lg:grid-cols-2 justify-between lg:justify-center gap-4 md:gap-4 lg:gap-5 ">
+                            
+                            <!-- Selected item dynamicaly added Here  -->
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- Footer Section  -->
+        <section id="footer"
+         class="bg-black">
+            <div class="container w-11/12 mx-auto py-14">
+                <footer class="footer  text-neutral-content lg:flex justify-between">
+                    <nav>
+                        <div class="logo flex items-center gap-2 cursor-pointer">
+                            <div class="logoImage">
+                                <img src="images/logo.webp" alt="">
+                            </div>
+                            <a class=" text-xl text-white font-bold tracking-wider">Peddy</a>
+                        </div>
+                        <div class="flex flex-col mt-3 space-y-1">
+                            <p> <i class="fa-solid fa-location-dot mr-2"></i>Location: av. Washington 165, NY CA 54003</p>
+                            <p><i class="fa-solid fa-phone-volume mr-2"></i> Phone: +31 85 964 47 25 </p>
+                            <p><i class="fa-regular fa-envelope mr-2"></i>  Email: info@yourdomain.com </p>
+                            <p><i class="fa-regular fa-clock mr-2"></i> Openings hours: 9.00 AM - 5.00 </p>
+                                
+                        </div>
+                        <!-- Social Link  -->
+                        <div class="flex gap-4 mt-6">
+                            <i class="fa-brands fa-square-facebook text-xl text-blue-500 cursor-pointer"></i>
+                            <i class="fa-brands fa-x-twitter text-xl cursor-pointer"></i>
+                            <i class="fa-brands fa-youtube text-xl text-red-500 cursor-pointer"></i>
+                            <i class="fa-brands fa-instagram text-xl text-purple-900 cursor-pointer"></i>
+                        </div>
+                    </nav>
+                    <nav>
+                        <h6 class="footer-title">Usefull Links</h6>
+                        <a class="link link-hover">Home</a>
+                        <a class="link link-hover">About</a>
+                        <a class="link link-hover">Animals</a>
+                        <a class="link link-hover">Foundation</a>
+                        <a class="link link-hover">Shop</a>
+                        <a class="link link-hover">Contact</a>
+                    </nav>
+                    <nav>
+                        <h6 class="footer-title">Message Drop</h6>
+                        <label class="input input-bordered flex items-center gap-2">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 16 16"
+                              fill="currentColor"
+                              class="h-4 w-4 opacity-100">
+                              <path
+                                d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                              <path
+                                d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+                            </svg>
+                            <input type="text" class="grow text-black " placeholder="Email" />
+                        </label>
+                        <button class="btn px-[87px] bg-[#010d78] text-white hover:text-black hover:bg-gray-400">Subscribe</button>
+                    </nav>
+                </footer>
+            </div>
+        </section>
+        
+        
+
+
+
+
+
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
